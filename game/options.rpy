@@ -21,7 +21,7 @@ define gui.show_name = True
 
 ## 游戏版本号。
 
-define config.version = "GGJ2020v0.0.1.x"
+define config.version = "GGJ2020v0.1.0.0"
 
 
 ## 放置在游戏“关于”屏幕的文本。将文本放在三个引号之间，并在段落之间留一个空行。
@@ -30,6 +30,8 @@ define gui.about = _p("""This is a Global Game project from UWNBoundless team in
 The team members are Jason(Hairong Wu), Chief Programmer as well as Producer;
 Billie, Jiaxing Li, Jennifer(Yachun Zhang), Yunhan Zhong, Jack(Zebang Song), Andy(Fusheng Wang),
 who are all artist and supporters of the game!
+
+This v0.1.x.x is the advance versions for publishing on Steam.
 
 Previous GitHub Development link(version done during GGJ2020):https://github.com/YuudachiXMMY/Stalker-by-UWNBoundless-GGJ2020
 """)
