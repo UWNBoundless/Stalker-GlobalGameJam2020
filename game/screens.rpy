@@ -286,7 +286,7 @@ screen quick_menu():
 init python:
     config.overlay_screens.append("quick_menu")
 
-default quick_menu = True
+default quick_menu = False
 
 style quick_button is default
 style quick_button_text is button_text
@@ -399,10 +399,21 @@ screen main_menu():
     if gui.show_name:
 
         vbox:
-            text "[config.name!t]":
-                style "main_menu_title"
+            spacing -10
+
+            if persistent.global_language == "EN":
+                text "[config.name!t]":
+                    style "main_menu_title"
+            elif persistent.global_language == "CN":
+                text "尾随者":
+                    style "main_menu_title"
             text "[config.version]":
                 style "main_menu_version"
+            if persistent.EarlAccess:
+                if persistent.global_language == "EN":
+                    text "Steam Early Access"
+                elif persistent.global_language == "CN":
+                    text "Steam 先行版"
 
 
 style main_menu_frame is empty
@@ -744,8 +755,13 @@ screen preferences():
         add "gui/nvl.png"
 
         hbox:
+            xalign 0.5 xanchor 0.5
+            xsize 1100
+            yalign 0.25
+            spacing 150
 
             vbox:
+                spacing 100
 
                 add "gui/game_screen/sarr_idle.png"
 
@@ -754,19 +770,29 @@ screen preferences():
                 add "gui/game_screen/inter_idle.png"
 
             vbox:
+                spacing 100
 
-                add "gui/option/z.png"
+                add "gui/option/z.png" zoom 0.5 yoffset 10
 
-                add "gui/option/x.png"
+                add "gui/option/x.png" zoom 0.5 xoffset 10
 
-                add "gui/option/space.png"
+                add "gui/option/space.png" zoom 0.5
+            
+            vbox:
+                spacing 100
+                if persistent.global_language == "EN":
+                    text "General Step.\nCan be controlled by clicking the button, \"z\" on keyboard, or \"y\" on controller." yoffset 10
+                    text "Fast Step.\nCan be controlled by clicking the button, \"x\" on keyboard, or \"a\" on controller."
+                    text "Interaction button. Used for map/event interaction.\nCan be controlled by clicking the button, \"space\" on keyboard, or \"b\" on controller." yoffset -10
+                elif persistent.global_language == "CN":
+                    pass
 
         if persistent.global_language == "EN":
             textbutton _("Return"):
                 xalign 0.9 yalign 0.9
                 text_style "preferences_textbtn"
                 action Return(), Hide("preferences")
-        else:
+        elif persistent.global_language == "CN":
             textbutton _("返回"):
                 xalign 0.9 yalign 0.9
                 text_style "preferences_textbtn"
@@ -1486,7 +1512,6 @@ screen quick_menu():
             textbutton _("快进") action Skip() alternate Skip(fast=True, confirm=True)
             textbutton _("自动") action Preference("auto-forward", "toggle")
             textbutton _("菜单") action ShowMenu()
-
 
 style window:
     variant "small"

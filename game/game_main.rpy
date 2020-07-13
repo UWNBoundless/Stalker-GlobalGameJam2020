@@ -27,7 +27,7 @@ screen game_buttonControll(xoffset_max):
         # text _(str(persistent.street_achieve)) xpos 100 ypos 0 color '#000't', global_xoffset+60)]
 
         imagebutton:
-            keysym 'z'
+            keysym 'z', "pad_y_press"
             xalign 0.95 yalign 0.2
             auto 'sarr_%s'
             # if abs(global_xoffset-10) > abs(xoffset_max):
@@ -46,7 +46,7 @@ screen game_buttonControll(xoffset_max):
                         Show('f_con')]
 
         imagebutton:
-            keysym 'x'
+            keysym 'x', "pad_a_press"
             xalign 0.95 yalign 0.5
             auto 'farr_%s'
             # if abs(global_xoffset-150) > abs(xoffset_max):
@@ -65,7 +65,7 @@ screen game_buttonControll(xoffset_max):
                     Show('f_con')]
 
         imagebutton:
-            keysym 'K_SPACE'
+            keysym 'K_SPACE', "pad_b_press"
             xalign 0.95 yalign 0.8
             auto 'inter_%s'
             if renpy.get_screen('game_map_street_2') and abs(global_xoffset)==400:
