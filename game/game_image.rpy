@@ -178,6 +178,9 @@ image red_h:
     'gui/game_screen/red_h.png'
 image red_l:
     'gui/game_screen/red_l.png'
+image option_idle:
+    zoom 0.25
+    "gui/option/option.png"
 ################################################################################
 ## Temp Scene 1
 ################################################################################

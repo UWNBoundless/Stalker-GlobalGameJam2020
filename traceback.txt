@@ -1,37 +1,28 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
-After initialization, but before game start.
-  File "game/screens.rpy", line 90, in prepare_screen
-    screen language_list():
-  File "game/screens.rpy", line 90, in prepare
-    screen language_list():
-  File "game/screens.rpy", line 92, in prepare
-    textbutton _('EN', color='#EEEEEE'):
-TypeError: _() got an unexpected keyword argument 'color'
+While running game code:
+  File "game/screens.rpy", line 771, in script
+    init python:
+  File "game/screens.rpy", line 772, in <module>
+    style.preferences_textbtn.color = "#FF0000"
+Exception: Style 'preferences_textbtn' does not exist.
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "W:\GamePython\renpy-7.3.2-sdk\renpy\bootstrap.py", line 316, in bootstrap
-    renpy.main.main()
-  File "W:\GamePython\renpy-7.3.2-sdk\renpy\main.py", line 578, in main
-    run(restart)
-  File "W:\GamePython\renpy-7.3.2-sdk\renpy\main.py", line 94, in run
-    renpy.display.screen.prepare_screens()
-  File "W:\GamePython\renpy-7.3.2-sdk\renpy\display\screen.py", line 931, in prepare_screens
-    s.ast.prepare_screen()
-  File "game/screens.rpy", line 90, in prepare_screen
-    screen language_list():
-  File "game/screens.rpy", line 90, in prepare
-    screen language_list():
-  File "game/screens.rpy", line 92, in prepare
-    textbutton _('EN', color='#EEEEEE'):
-  File "W:\GamePython\renpy-7.3.2-sdk\renpy\python.py", line 2052, in py_eval_bytecode
-    return eval(bytecode, globals, locals)
-  File "<screen language>", line 92, in <module>
-TypeError: _() got an unexpected keyword argument 'color'
+  File "game/screens.rpy", line 771, in script
+    init python:
+  File "C:\Users\LANCExx\Downloads\renpy-7.3.5-sdk\renpy\ast.py", line 914, in execute
+    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
+  File "C:\Users\LANCExx\Downloads\renpy-7.3.5-sdk\renpy\python.py", line 2028, in py_exec_bytecode
+    exec bytecode in globals, locals
+  File "game/screens.rpy", line 772, in <module>
+    style.preferences_textbtn.color = "#FF0000"
+  File "style.pyx", line 216, in renpy.style.StyleManager.__getattr__
+  File "style.pyx", line 98, in renpy.style.get_style
+Exception: Style 'preferences_textbtn' does not exist.
 
 Windows-8-6.2.9200
 Ren'Py 7.3.5.606
-Stalker v0.1.0.2
-Fri Feb 28 15:04:10 2020
+ 
+Mon Jul 13 14:30:21 2020

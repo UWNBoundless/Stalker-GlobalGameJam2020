@@ -83,18 +83,23 @@ style frame:
 screen language_change():
     tag menu
 
+    imagebutton:
+        xalign 1.0 yalign 0.0 yoffset 5
+        idle "option_idle"
+        action ShowMenu("preferences")
+
     textbutton _(persistent.global_language):
-        xalign 1.0 yalign 0.0
+        xalign 1.0 yalign 0.05
         action Show('language_list')
 
 screen language_list():
 
     textbutton _('EN'):
-        xalign 1.0 yalign 0.0
+        xalign 1.0 yalign 0.05
         action SetVariable('persistent.global_language', 'EN'), Hide('language_list')
 
     textbutton _('CN'):
-        xalign 1.0 yalign 0.0 ypos 20
+        xalign 1.0 yalign 0.05 yoffset 25
         action SetVariable('persistent.global_language', 'CN'), Hide('language_list')
 
 
@@ -735,90 +740,126 @@ style slot_button_text:
 
 screen preferences():
 
-    tag menu
+    if main_menu:
+        add "gui/nvl.png"
 
-    use game_menu(_("设置"), scroll="viewport"):
+        hbox:
 
-        vbox:
+            vbox:
 
-            hbox:
-                box_wrap True
+                add "gui/game_screen/sarr_idle.png"
 
-                if renpy.variant("pc") or renpy.variant("web"):
+                add "gui/game_screen/farr_idle.png"
 
-                    vbox:
-                        style_prefix "radio"
-                        label _("显示")
-                        textbutton _("窗口") action Preference("display", "window")
-                        textbutton _("全屏") action Preference("display", "fullscreen")
+                add "gui/game_screen/inter_idle.png"
 
-                vbox:
-                    style_prefix "radio"
-                    label _("回退控制区")
-                    textbutton _("禁用") action Preference("rollback side", "disable")
-                    textbutton _("左侧") action Preference("rollback side", "left")
-                    textbutton _("右侧") action Preference("rollback side", "right")
+            vbox:
 
-                vbox:
-                    style_prefix "check"
-                    label _("快进")
-                    textbutton _("未读文本") action Preference("skip", "toggle")
-                    textbutton _("选项后继续") action Preference("after choices", "toggle")
-                    textbutton _("忽略转场") action InvertSelected(Preference("transitions", "toggle"))
+                add "gui/option/z.png"
 
-                ## 可以在此处添加类型为“radio_pref”或“check_pref”的其他“vbox”，
-                ## 以添加其他创建者定义的首选项设置。
+                add "gui/option/x.png"
 
-            null height (4 * gui.pref_spacing)
+                add "gui/option/space.png"
 
-            hbox:
-                style_prefix "slider"
-                box_wrap True
-
-                vbox:
-
-                    label _("文字速度")
-
-                    bar value Preference("text speed")
-
-                    label _("自动前进时间")
-
-                    bar value Preference("auto-forward time")
-
-                vbox:
-
-                    if config.has_music:
-                        label _("音乐音量")
-
-                        hbox:
-                            bar value Preference("music volume")
-
-                    if config.has_sound:
-
-                        label _("音效音量")
-
-                        hbox:
-                            bar value Preference("sound volume")
-
-                            if config.sample_sound:
-                                textbutton _("测试") action Play("sound", config.sample_sound)
+        if persistent.global_language == "EN":
+            textbutton _("Return"):
+                xalign 0.9 yalign 0.9
+                text_style "preferences_textbtn"
+                action Return(), Hide("preferences")
+        else:
+            textbutton _("返回"):
+                xalign 0.9 yalign 0.9
+                text_style "preferences_textbtn"
+                action Return(), Hide("preferences")
 
 
-                    if config.has_voice:
-                        label _("语音音量")
+style preferences_textbtn:
+    color "#FF0000"
+    hover_color "#0000FF"
+    selected_color "#00FF00"
 
-                        hbox:
-                            bar value Preference("voice volume")
+    # use game_menu(_("设置"), scroll="viewport"):
 
-                            if config.sample_voice:
-                                textbutton _("测试") action Play("voice", config.sample_voice)
+    #     vbox:
 
-                    if config.has_music or config.has_sound or config.has_voice:
-                        null height gui.pref_spacing
+    #         hbox:
+    #             box_wrap True
 
-                        textbutton _("全部静音"):
-                            action Preference("all mute", "toggle")
-                            style "mute_all_button"
+    #             if renpy.variant("pc") or renpy.variant("web"):
+
+    #                 vbox:
+    #                     style_prefix "radio"
+    #                     label _("显示")
+    #                     textbutton _("窗口") action Preference("display", "window")
+    #                     textbutton _("全屏") action Preference("display", "fullscreen")
+
+    #             vbox:
+    #                 style_prefix "radio"
+    #                 label _("回退控制区")
+    #                 textbutton _("禁用") action Preference("rollback side", "disable")
+    #                 textbutton _("左侧") action Preference("rollback side", "left")
+    #                 textbutton _("右侧") action Preference("rollback side", "right")
+
+    #             vbox:
+    #                 style_prefix "check"
+    #                 label _("快进")
+    #                 textbutton _("未读文本") action Preference("skip", "toggle")
+    #                 textbutton _("选项后继续") action Preference("after choices", "toggle")
+    #                 textbutton _("忽略转场") action InvertSelected(Preference("transitions", "toggle"))
+
+    #             ## 可以在此处添加类型为“radio_pref”或“check_pref”的其他“vbox”，
+    #             ## 以添加其他创建者定义的首选项设置。
+
+    #         null height (4 * gui.pref_spacing)
+
+    #         hbox:
+    #             style_prefix "slider"
+    #             box_wrap True
+
+    #             vbox:
+
+    #                 label _("文字速度")
+
+    #                 bar value Preference("text speed")
+
+    #                 label _("自动前进时间")
+
+    #                 bar value Preference("auto-forward time")
+
+    #             vbox:
+
+    #                 if config.has_music:
+    #                     label _("音乐音量")
+
+    #                     hbox:
+    #                         bar value Preference("music volume")
+
+    #                 if config.has_sound:
+
+    #                     label _("音效音量")
+
+    #                     hbox:
+    #                         bar value Preference("sound volume")
+
+    #                         if config.sample_sound:
+    #                             textbutton _("测试") action Play("sound", config.sample_sound)
+
+
+    #                 if config.has_voice:
+    #                     label _("语音音量")
+
+    #                     hbox:
+    #                         bar value Preference("voice volume")
+
+    #                         if config.sample_voice:
+    #                             textbutton _("测试") action Play("voice", config.sample_voice)
+
+    #                 if config.has_music or config.has_sound or config.has_voice:
+    #                     null height gui.pref_spacing
+
+    #                     textbutton _("全部静音"):
+    #                         action Preference("all mute", "toggle")
+    #                         style "mute_all_button"
 
 
 style pref_label is gui_label
