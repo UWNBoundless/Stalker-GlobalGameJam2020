@@ -360,3 +360,9 @@ image bf:
     'bg/street/g_2.png'
     linear 1.0 alpha 1.0
 
+# staff
+image staff_cn:
+    "gui/staff/staff_cn.png"
+
+image staff_en:
+    "gui/staff/staff_en.png"

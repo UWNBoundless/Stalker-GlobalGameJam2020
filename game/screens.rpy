@@ -785,7 +785,9 @@ screen preferences():
                     text "Fast Step.\nCan be controlled by clicking the button, \"x\" on keyboard, or \"a\" on controller."
                     text "Interaction button. Used for map/event interaction.\nCan be controlled by clicking the button, \"space\" on keyboard, or \"b\" on controller." yoffset -10
                 elif persistent.global_language == "CN":
-                    pass
+                    text "缓慢前行。\n可通过点击按钮、键盘上的\"z\"键、或者手柄上的\"y\"键控制。" yoffset 10
+                    text "快速前行.\n可通过点击按钮、键盘上的\"x\"键、或者手柄上的\"a\"键控制。"
+                    text "交互按键。用于进行地图或事件的交互。\n可通过点击按钮、键盘上的\"space\"键、或者手柄上的\"b\"键控制。" yoffset -10
 
         if persistent.global_language == "EN":
             textbutton _("Return"):
@@ -798,95 +800,22 @@ screen preferences():
                 text_style "preferences_textbtn"
                 action Return(), Hide("preferences")
 
+        if persistent.global_language == "EN":
+            textbutton _("Production Staffs"):
+                xalign 0.1 yalign 0.9
+                text_style "preferences_textbtn"
+                action Hide("preferences"), ShowMenu("staffs_lst")
+        elif persistent.global_language == "CN":
+            textbutton _("制作人员"):
+                xalign 0.1 yalign 0.9
+                text_style "preferences_textbtn"
+                action Hide("preferences"), ShowMenu("staffs_lst")
+
 
 style preferences_textbtn:
     color "#FF0000"
     hover_color "#0000FF"
     selected_color "#00FF00"
-
-    # use game_menu(_("设置"), scroll="viewport"):
-
-    #     vbox:
-
-    #         hbox:
-    #             box_wrap True
-
-    #             if renpy.variant("pc") or renpy.variant("web"):
-
-    #                 vbox:
-    #                     style_prefix "radio"
-    #                     label _("显示")
-    #                     textbutton _("窗口") action Preference("display", "window")
-    #                     textbutton _("全屏") action Preference("display", "fullscreen")
-
-    #             vbox:
-    #                 style_prefix "radio"
-    #                 label _("回退控制区")
-    #                 textbutton _("禁用") action Preference("rollback side", "disable")
-    #                 textbutton _("左侧") action Preference("rollback side", "left")
-    #                 textbutton _("右侧") action Preference("rollback side", "right")
-
-    #             vbox:
-    #                 style_prefix "check"
-    #                 label _("快进")
-    #                 textbutton _("未读文本") action Preference("skip", "toggle")
-    #                 textbutton _("选项后继续") action Preference("after choices", "toggle")
-    #                 textbutton _("忽略转场") action InvertSelected(Preference("transitions", "toggle"))
-
-    #             ## 可以在此处添加类型为“radio_pref”或“check_pref”的其他“vbox”，
-    #             ## 以添加其他创建者定义的首选项设置。
-
-    #         null height (4 * gui.pref_spacing)
-
-    #         hbox:
-    #             style_prefix "slider"
-    #             box_wrap True
-
-    #             vbox:
-
-    #                 label _("文字速度")
-
-    #                 bar value Preference("text speed")
-
-    #                 label _("自动前进时间")
-
-    #                 bar value Preference("auto-forward time")
-
-    #             vbox:
-
-    #                 if config.has_music:
-    #                     label _("音乐音量")
-
-    #                     hbox:
-    #                         bar value Preference("music volume")
-
-    #                 if config.has_sound:
-
-    #                     label _("音效音量")
-
-    #                     hbox:
-    #                         bar value Preference("sound volume")
-
-    #                         if config.sample_sound:
-    #                             textbutton _("测试") action Play("sound", config.sample_sound)
-
-
-    #                 if config.has_voice:
-    #                     label _("语音音量")
-
-    #                     hbox:
-    #                         bar value Preference("voice volume")
-
-    #                         if config.sample_voice:
-    #                             textbutton _("测试") action Play("voice", config.sample_voice)
-
-    #                 if config.has_music or config.has_sound or config.has_voice:
-    #                     null height gui.pref_spacing
-
-    #                     textbutton _("全部静音"):
-    #                         action Preference("all mute", "toggle")
-    #                         style "mute_all_button"
-
 
 style pref_label is gui_label
 style pref_label_text is gui_label_text
@@ -957,6 +886,44 @@ style slider_button_text:
 
 style slider_vbox:
     xsize 450
+
+
+## 历史屏幕 ########################################################################
+##
+## 
+
+screen staffs_lst():
+    tag menu
+
+    add '/cg/e2.png'
+
+    add "gui/nvl.png"
+
+    if persistent.global_language == "EN":
+        add "staff_en":
+            at transform:
+                ypos 720
+                linear 20 ypos -720
+        # text "Production Staffs\nProduction Team：NetBit @UW\nProducer：Hairong Wu\nArtists：Jiaxin Li，Billie，Yunhan Zhong，Yachun Zhang，Zebang Song\nScript：Hairong Wu\nSupports：Fosheng Wang"
+    elif persistent.global_language == "CN":
+        add "staff_cn":
+            at transform:
+                ypos 720
+                linear 20 ypos -720
+        # text "制作人员\n制作团队：NetBit @UW\n策划：吴海荣(芯玫墨韵)\n美工：李嘉欣，Billie，钟允寒，张雅淳，宋泽邦\n程序：吴海荣(芯玫墨韵)\n后勤：汪佛生"
+
+    if persistent.global_language == "EN":
+        textbutton _("Return"):
+            xalign 0.9 yalign 0.9
+            text_style "preferences_textbtn"
+            action Return(), Hide("preferences")
+    elif persistent.global_language == "CN":
+        textbutton _("返回"):
+            xalign 0.9 yalign 0.9
+            text_style "preferences_textbtn"
+            action Return(), Hide("preferences")
+    
+    timer 20 action Return(), Hide("preferences")
 
 
 ## 历史屏幕 ########################################################################
