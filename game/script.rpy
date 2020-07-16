@@ -1,4 +1,6 @@
 ﻿
+default persistent.caught_achievements = 0
+
 label start:
 
     jump startr
@@ -153,6 +155,8 @@ label e1:
     jump achieve
 
 label be1:
+
+    $ persistent.caught_achievements += 1
 
     # $ persistent.caught_times += 1
 
