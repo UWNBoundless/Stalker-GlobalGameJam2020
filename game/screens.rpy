@@ -83,18 +83,23 @@ style frame:
 screen language_change():
     tag menu
 
+    imagebutton:
+        xalign 1.0 yalign 0.0 yoffset 5
+        idle "option_idle"
+        action ShowMenu("preferences")
+
     textbutton _(persistent.global_language):
-        xalign 1.0 yalign 0.0
+        xalign 1.0 yalign 0.05
         action Show('language_list')
 
 screen language_list():
 
     textbutton _('EN'):
-        xalign 1.0 yalign 0.0
+        xalign 1.0 yalign 0.05
         action SetVariable('persistent.global_language', 'EN'), Hide('language_list')
 
     textbutton _('CN'):
-        xalign 1.0 yalign 0.0 ypos 20
+        xalign 1.0 yalign 0.05 yoffset 25
         action SetVariable('persistent.global_language', 'CN'), Hide('language_list')
 
 
@@ -281,7 +286,7 @@ screen quick_menu():
 init python:
     config.overlay_screens.append("quick_menu")
 
-default quick_menu = True
+default quick_menu = False
 
 style quick_button is default
 style quick_button_text is button_text
@@ -394,10 +399,21 @@ screen main_menu():
     if gui.show_name:
 
         vbox:
-            text "[config.name!t]":
-                style "main_menu_title"
+            spacing -10
+
+            if persistent.global_language == "EN":
+                text "[config.name!t]":
+                    style "main_menu_title"
+            elif persistent.global_language == "CN":
+                text "尾随者":
+                    style "main_menu_title"
             text "[config.version]":
                 style "main_menu_version"
+            if persistent.EarlAccess:
+                if persistent.global_language == "EN":
+                    text "Steam Early Access"
+                elif persistent.global_language == "CN":
+                    text "Steam 先行版"
 
 
 style main_menu_frame is empty
@@ -735,91 +751,71 @@ style slot_button_text:
 
 screen preferences():
 
-    tag menu
+    if main_menu:
+        add "gui/nvl.png"
 
-    use game_menu(_("设置"), scroll="viewport"):
+        hbox:
+            xalign 0.5 xanchor 0.5
+            xsize 1100
+            yalign 0.25
+            spacing 150
 
-        vbox:
+            vbox:
+                spacing 100
 
-            hbox:
-                box_wrap True
+                add "gui/game_screen/sarr_idle.png"
 
-                if renpy.variant("pc") or renpy.variant("web"):
+                add "gui/game_screen/farr_idle.png"
 
-                    vbox:
-                        style_prefix "radio"
-                        label _("显示")
-                        textbutton _("窗口") action Preference("display", "window")
-                        textbutton _("全屏") action Preference("display", "fullscreen")
+                add "gui/game_screen/inter_idle.png"
 
-                vbox:
-                    style_prefix "radio"
-                    label _("回退控制区")
-                    textbutton _("禁用") action Preference("rollback side", "disable")
-                    textbutton _("左侧") action Preference("rollback side", "left")
-                    textbutton _("右侧") action Preference("rollback side", "right")
+            vbox:
+                spacing 100
 
-                vbox:
-                    style_prefix "check"
-                    label _("快进")
-                    textbutton _("未读文本") action Preference("skip", "toggle")
-                    textbutton _("选项后继续") action Preference("after choices", "toggle")
-                    textbutton _("忽略转场") action InvertSelected(Preference("transitions", "toggle"))
+                add "gui/option/z.png" zoom 0.5 yoffset 10
 
-                ## 可以在此处添加类型为“radio_pref”或“check_pref”的其他“vbox”，
-                ## 以添加其他创建者定义的首选项设置。
+                add "gui/option/x.png" zoom 0.5 xoffset 10
 
-            null height (4 * gui.pref_spacing)
+                add "gui/option/space.png" zoom 0.5
+            
+            vbox:
+                spacing 100
+                if persistent.global_language == "EN":
+                    text "General Step.\nCan be controlled by clicking the button, \"z\" on keyboard, or \"y\" on controller." yoffset 10
+                    text "Fast Step.\nCan be controlled by clicking the button, \"x\" on keyboard, or \"a\" on controller."
+                    text "Interaction button. Used for map/event interaction.\nCan be controlled by clicking the button, \"space\" on keyboard, or \"b\" on controller." yoffset -10
+                elif persistent.global_language == "CN":
+                    text "缓慢前行。\n可通过点击按钮、键盘上的\"z\"键、或者手柄上的\"y\"键控制。" yoffset 10
+                    text "快速前行.\n可通过点击按钮、键盘上的\"x\"键、或者手柄上的\"a\"键控制。"
+                    text "交互按键。用于进行地图或事件的交互。\n可通过点击按钮、键盘上的\"space\"键、或者手柄上的\"b\"键控制。" yoffset -10
 
-            hbox:
-                style_prefix "slider"
-                box_wrap True
+        if persistent.global_language == "EN":
+            textbutton _("Return"):
+                xalign 0.9 yalign 0.9
+                text_style "preferences_textbtn"
+                action Return(), Hide("preferences")
+        elif persistent.global_language == "CN":
+            textbutton _("返回"):
+                xalign 0.9 yalign 0.9
+                text_style "preferences_textbtn"
+                action Return(), Hide("preferences")
 
-                vbox:
-
-                    label _("文字速度")
-
-                    bar value Preference("text speed")
-
-                    label _("自动前进时间")
-
-                    bar value Preference("auto-forward time")
-
-                vbox:
-
-                    if config.has_music:
-                        label _("音乐音量")
-
-                        hbox:
-                            bar value Preference("music volume")
-
-                    if config.has_sound:
-
-                        label _("音效音量")
-
-                        hbox:
-                            bar value Preference("sound volume")
-
-                            if config.sample_sound:
-                                textbutton _("测试") action Play("sound", config.sample_sound)
+        if persistent.global_language == "EN":
+            textbutton _("Production Staffs"):
+                xalign 0.1 yalign 0.9
+                text_style "preferences_textbtn"
+                action Hide("preferences"), ShowMenu("staffs_lst")
+        elif persistent.global_language == "CN":
+            textbutton _("制作人员"):
+                xalign 0.1 yalign 0.9
+                text_style "preferences_textbtn"
+                action Hide("preferences"), ShowMenu("staffs_lst")
 
 
-                    if config.has_voice:
-                        label _("语音音量")
-
-                        hbox:
-                            bar value Preference("voice volume")
-
-                            if config.sample_voice:
-                                textbutton _("测试") action Play("voice", config.sample_voice)
-
-                    if config.has_music or config.has_sound or config.has_voice:
-                        null height gui.pref_spacing
-
-                        textbutton _("全部静音"):
-                            action Preference("all mute", "toggle")
-                            style "mute_all_button"
-
+style preferences_textbtn:
+    color "#FF0000"
+    hover_color "#0000FF"
+    selected_color "#00FF00"
 
 style pref_label is gui_label
 style pref_label_text is gui_label_text
@@ -890,6 +886,44 @@ style slider_button_text:
 
 style slider_vbox:
     xsize 450
+
+
+## 历史屏幕 ########################################################################
+##
+## 
+
+screen staffs_lst():
+    tag menu
+
+    add '/cg/e2.png'
+
+    add "gui/nvl.png"
+
+    if persistent.global_language == "EN":
+        add "staff_en":
+            at transform:
+                ypos 720
+                linear 20 ypos -720
+        # text "Production Staffs\nProduction Team：NetBit @UW\nProducer：Hairong Wu\nArtists：Jiaxin Li，Billie，Yunhan Zhong，Yachun Zhang，Zebang Song\nScript：Hairong Wu\nSupports：Fosheng Wang"
+    elif persistent.global_language == "CN":
+        add "staff_cn":
+            at transform:
+                ypos 720
+                linear 20 ypos -720
+        # text "制作人员\n制作团队：NetBit @UW\n策划：吴海荣(芯玫墨韵)\n美工：李嘉欣，Billie，钟允寒，张雅淳，宋泽邦\n程序：吴海荣(芯玫墨韵)\n后勤：汪佛生"
+
+    if persistent.global_language == "EN":
+        textbutton _("Return"):
+            xalign 0.9 yalign 0.9
+            text_style "preferences_textbtn"
+            action Return(), Hide("preferences")
+    elif persistent.global_language == "CN":
+        textbutton _("返回"):
+            xalign 0.9 yalign 0.9
+            text_style "preferences_textbtn"
+            action Return(), Hide("preferences")
+    
+    timer 20 action Return(), Hide("preferences")
 
 
 ## 历史屏幕 ########################################################################
@@ -1445,7 +1479,6 @@ screen quick_menu():
             textbutton _("快进") action Skip() alternate Skip(fast=True, confirm=True)
             textbutton _("自动") action Preference("auto-forward", "toggle")
             textbutton _("菜单") action ShowMenu()
-
 
 style window:
     variant "small"

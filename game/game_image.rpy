@@ -178,6 +178,9 @@ image red_h:
     'gui/game_screen/red_h.png'
 image red_l:
     'gui/game_screen/red_l.png'
+image option_idle:
+    zoom 0.25
+    "gui/option/option.png"
 ################################################################################
 ## Temp Scene 1
 ################################################################################
@@ -357,3 +360,9 @@ image bf:
     'bg/street/g_2.png'
     linear 1.0 alpha 1.0
 
+# staff
+image staff_cn:
+    "gui/staff/staff_cn.png"
+
+image staff_en:
+    "gui/staff/staff_en.png"

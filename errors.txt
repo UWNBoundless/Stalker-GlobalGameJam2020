@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/screens.rpy", line 87: u'size' is not a keyword argument or valid child for the textbutton statement.
-    size 40
-        ^
+File "game/screens.rpy", line 902: screen expects a non-empty block.
+    if persistent.global_language == "EN":
+                                          ^
 
 Ren'Py Version: Ren'Py 7.3.5.606
-Fri Feb 28 14:57:53 2020
+Wed Jul 15 19:18:25 2020

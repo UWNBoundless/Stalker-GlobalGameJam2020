@@ -1,7 +1,9 @@
 ﻿
+default persistent.caught_achievements = 0
+
 label start:
 
-    jump achieve
+    jump startr
 
 label startr:
 
@@ -113,22 +115,26 @@ label s4:
 label ne1:
     scene image '/cg/e1.jpg' with Dissolve(1.0)
     pause
-    return
+
+    jump achieve
 
 label ne2:
     scene image '/cg/e2.png' with Dissolve(1.0)
     pause
-    return
+
+    jump achieve
 
 label ne3:
     scene image '/cg/cg_3.png' with Dissolve(1.0)
     pause
-    return
+
+    jump achieve
 
 label ne4:
     scene image '/cg/e4.jpg' with Dissolve(1.0)
     pause
-    return
+
+    jump achieve
 
 label ne5:
     scene image '/cg/e5.jpg' with Dissolve(1.0)
@@ -146,9 +152,11 @@ label e1:
     scene image '/cg/cg_none_4.jpg' with Dissolve(0.5)
     pause
 
-    return
+    jump achieve
 
 label be1:
+
+    $ persistent.caught_achievements += 1
 
     # $ persistent.caught_times += 1
 
@@ -157,7 +165,7 @@ label be1:
     scene image '/cg/cg_caught_2.jpg' with Dissolve(2.0)
     pause
 
-    return
+    jump achieve
 
 label be2:
 
@@ -169,4 +177,4 @@ label be2:
     stop music
     pause
 
-    return
+    jump achieve
