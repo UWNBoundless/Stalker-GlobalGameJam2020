@@ -23,7 +23,7 @@ define gui.show_name = True
 
 ## 游戏版本号。
 
-define config.version = "v0.1.0.2"
+define config.version = "v0.2.0.2"
 
 define persistent.EarlAccess = True
 
@@ -180,6 +180,7 @@ init python:
     build.classify('**/.**', None)
     build.classify('**/#**', None)
     build.classify('**/thumbs.db', None)
+    build.classify('//UWNBoundless_GlobalGameJam2020//**~', None)
 
     ## 若要打包文件，需将其列为“archive”。
 

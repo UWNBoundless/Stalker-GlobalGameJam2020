@@ -65,6 +65,17 @@ image bg_street_ani2:
     pause 0.5
     repeat
 
+image bg_street_new_ani:
+    'bg/street/1.png'
+    pause 0.5
+    'bg/street/2.png'
+    pause 0.5
+    'bg/street/3.png'
+    pause 0.5
+    'bg/street/2.png'
+    pause 0.5
+    repeat
+
 # CN
 image bg_cn_building:
     'bg/cn/building.png'

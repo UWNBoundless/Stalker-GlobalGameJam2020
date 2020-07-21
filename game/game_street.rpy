@@ -13,9 +13,10 @@ screen game_map_street_1():
 
     modal True
 
-    add 'bg_street_ani1' xpos -50 ypos 0 xoffset global_xoffset
-    add 'bg_street_bg' xpos -50 ypos 0 xoffset global_xoffset
-    add 'bg_street_ani2' xpos -50 ypos 0 xoffset global_xoffset
+    # add 'bg_street_ani1' xpos -50 ypos 0 xoffset global_xoffset
+    # add 'bg_street_bg' xpos -50 ypos 0 xoffset global_xoffset
+    # add 'bg_street_ani2' xpos -50 ypos 0 xoffset global_xoffset
+    add "bg_street_new_ani" xpos -10 xoffset global_xoffset
 
     timer 0.01 action Show('f_1_110', t=6, s='game_map_street_1')
 
@@ -68,9 +69,10 @@ screen game_map_street_2():
         timer 0.01 action [ Hide('f_con'),
                             Return('E1')]
 
-    add 'bg_street_ani1' xpos -50 ypos 0 xoffset global_xoffset
-    add 'bg_street_bg' xpos -50 ypos 0 xoffset global_xoffset
-    add 'bg_street_ani2' xpos -50 ypos 0 xoffset global_xoffset
+    # add 'bg_street_ani1' xpos -50 ypos 0 xoffset global_xoffset
+    # add 'bg_street_bg' xpos -50 ypos 0 xoffset global_xoffset
+    # add 'bg_street_ani2' xpos -50 ypos 0 xoffset global_xoffset
+    add "bg_street_new_ani" xpos -10 xoffset global_xoffset
 
     if persistent.street_achieve == 0:
         add 'in_street_1' xpos 0 ypos 0 xoffset global_xoffset
