@@ -54,5 +54,110 @@ label achieve:
     $ achievement.register('CaughtTime_0_4', steam='ACHIEVEMENT_CaughtTime_0_4')
     if not achievement.has('CaughtTime_0_4') and persistent.caught_achievements >= 30:
         $ achievement.grant('CaughtTime_0_4')
+
+    # 色情狂魔
+    $ achievement.register('xxxxxx', steam='xxxxxx')
+    if not achievement.has('xxxxxx') and persistent.pleasuretimes_achievements >= 10:
+        $ achievement.grant('xxxxxx')
+
+    $ achievement.register('xxxxxx', steam='xxxxxx')
+    if not achievement.has('xxxxxx') and persistent.pleasuretimes_achievements >= 50:
+        $ achievement.grant('xxxxxx')
+
+    $ achievement.register('xxxxxx', steam='xxxxxx')
+    if not achievement.has('xxxxxx') and persistent.pleasuretimes_achievements >= 100:
+        $ achievement.grant('xxxxxx')
+
+    $ achievement.register('xxxxxx', steam='xxxxxx')
+    if not achievement.has('xxxxxx') and persistent.pleasuretimes_achievements >= 500:
+        $ achievement.grant('xxxxxx')
+
+    $ achievement.register('xxxxxx', steam='xxxxxx')
+    if not achievement.has('xxxxxx') and persistent.pleasuretimes_achievements >= 1000:
+        $ achievement.grant('xxxxxx')
+
+    # 猫咪
+    $ achievement.register('xxxxxx', steam='xxxxxx')
+    if not achievement.has('xxxxxx') and persistent.cat_achievements >= 1:
+        $ achievement.grant('xxxxxx')
+
+    $ achievement.register('xxxxxx', steam='xxxxxx')
+    if not achievement.has('xxxxxx') and persistent.cat_achievements >= 5:
+        $ achievement.grant('xxxxxx')
+
+    $ achievement.register('xxxxxx', steam='xxxxxx')
+    if not achievement.has('xxxxxx') and persistent.cat_achievements >= 10:
+        $ achievement.grant('xxxxxx')
+
+    $ achievement.register('xxxxxx', steam='xxxxxx')
+    if not achievement.has('xxxxxx') and persistent.cat_achievements >= 20:
+        $ achievement.grant('xxxxxx')
+
+    $ achievement.register('xxxxxx', steam='xxxxxx')
+    if not achievement.has('xxxxxx') and persistent.cat_achievements >= 30:
+        $ achievement.grant('xxxxxx')
     
+    # 黑衣人友人
+    $ achievement.register('xxxxxx', steam='xxxxxx')
+    if not achievement.has('xxxxxx') and persistent.street_achievements >= 1:
+        $ achievement.grant('xxxxxx')
+
+    $ achievement.register('xxxxxx', steam='xxxxxx')
+    if not achievement.has('xxxxxx') and persistent.street_achievements >= 5:
+        $ achievement.grant('xxxxxx')
+
+    $ achievement.register('xxxxxx', steam='xxxxxx')
+    if not achievement.has('xxxxxx') and persistent.street_achievements >= 10:
+        $ achievement.grant('xxxxxx')
+
+    $ achievement.register('xxxxxx', steam='xxxxxx')
+    if not achievement.has('xxxxxx') and persistent.street_achievements >= 20:
+        $ achievement.grant('xxxxxx')
+
+    $ achievement.register('xxxxxx', steam='xxxxxx')
+    if not achievement.has('xxxxxx') and persistent.street_achievements >= 30:
+        $ achievement.grant('xxxxxx')
+
+    # 无所作为
+    $ achievement.register('xxxxxx', steam='xxxxxx')
+    if not achievement.has('xxxxxx') and persistent.nothing_achievements >= 1:
+        $ achievement.grant('xxxxxx')
+
+    $ achievement.register('xxxxxx', steam='xxxxxx')
+    if not achievement.has('xxxxxx') and persistent.nothing_achievements >= 5:
+        $ achievement.grant('xxxxxx')
+
+    $ achievement.register('xxxxxx', steam='xxxxxx')
+    if not achievement.has('xxxxxx') and persistent.nothing_achievements >= 10:
+        $ achievement.grant('xxxxxx')
+
+    $ achievement.register('xxxxxx', steam='xxxxxx')
+    if not achievement.has('xxxxxx') and persistent.nothing_achievements >= 20:
+        $ achievement.grant('xxxxxx')
+
+    $ achievement.register('xxxxxx', steam='xxxxxx')
+    if not achievement.has('xxxxxx') and persistent.nothing_achievements >= 30:
+        $ achievement.grant('xxxxxx')
+
+    # 捡垃圾达人
+    $ achievement.register('xxxxxx', steam='xxxxxx')
+    if not achievement.has('xxxxxx') and persistent.trash_achievements >= 1:
+        $ achievement.grant('xxxxxx')
+
+    $ achievement.register('xxxxxx', steam='xxxxxx')
+    if not achievement.has('xxxxxx') and persistent.trash_achievements >= 5:
+        $ achievement.grant('xxxxxx')
+
+    $ achievement.register('xxxxxx', steam='xxxxxx')
+    if not achievement.has('xxxxxx') and persistent.trash_achievements >= 10:
+        $ achievement.grant('xxxxxx')
+
+    $ achievement.register('xxxxxx', steam='xxxxxx')
+    if not achievement.has('xxxxxx') and persistent.trash_achievements >= 20:
+        $ achievement.grant('xxxxxx')
+
+    $ achievement.register('xxxxxx', steam='xxxxxx')
+    if not achievement.has('xxxxxx') and persistent.trash_achievements >= 30:
+        $ achievement.grant('xxxxxx')
+
     return

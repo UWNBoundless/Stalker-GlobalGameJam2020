@@ -1,5 +1,8 @@
-﻿
-default persistent.caught_achievements = 0
+﻿default persistent.caught_achievements = 0
+default persistent.pleasuretimes_achievements = 0
+default persistent.street_achievements = 0
+default persistent.nothing_achievements = 0
+default persistent.trash_achievements = 0
 
 label start:
 
@@ -9,6 +12,7 @@ label startr:
 
     $ persistent.val = 95
 
+    $ persistent.trash_counts = 0
     $ persistent.cn_cat_inter = 0
     $ persistent.f_ht_times = 0
     $ persistent.street_achieve = 0
@@ -113,35 +117,55 @@ label s4:
 ######################################
 # ending
 label ne1:
+    
+    $ persistent.trash_achievements += persistent.trash_counts
+    $ persistent.street_achievements += 1
+
     scene image '/cg/e1.jpg' with Dissolve(1.0)
     pause
 
     jump achieve
 
 label ne2:
+    
+    $ persistent.trash_achievements += persistent.trash_counts
+    $ persistent.cat_achievements += 1
+
     scene image '/cg/e2.png' with Dissolve(1.0)
     pause
 
     jump achieve
 
 label ne3:
+    $ persistent.trash_achievements += persistent.trash_counts
     scene image '/cg/cg_3.png' with Dissolve(1.0)
     pause
 
     jump achieve
 
 label ne4:
+    
+    $ persistent.trash_achievements += persistent.trash_counts
+    $ persistent.street_achievements += 1
+    
     scene image '/cg/e4.jpg' with Dissolve(1.0)
     pause
 
     jump achieve
 
 label ne5:
+    
+    $ persistent.trash_achievements += persistent.trash_counts
+    $ persistent.cat_achievements += 1
+
     scene image '/cg/e5.jpg' with Dissolve(1.0)
     pause
     return
 
 label e1:
+
+    $ persistent.trash_achievements += persistent.trash_counts
+    $ persistent.nothing_achievements += 1
 
     scene image '/cg/cg_none_1.jpg' with Dissolve(0.5)
     pause 0.5
@@ -156,9 +180,8 @@ label e1:
 
 label be1:
 
+    $ persistent.trash_achievements += persistent.trash_counts
     $ persistent.caught_achievements += 1
-
-    # $ persistent.caught_times += 1
 
     scene image '/cg/cg_caught_1.jpg' with Dissolve(2.0)
     pause 1.5
@@ -171,7 +194,8 @@ label be2:
 
     play music 'sound/car.mp3'
 
-    # $ persistent.dead_times += 1
+    $ persistent.trash_achievements += persistent.trash_counts
+    $ persistent.dead_times += 1
 
     scene image '/cg/cg_die1.jpg' with Dissolve(2.0)
     stop music
