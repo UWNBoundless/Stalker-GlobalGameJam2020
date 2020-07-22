@@ -180,7 +180,9 @@ init python:
     build.classify('**/.**', None)
     build.classify('**/#**', None)
     build.classify('**/thumbs.db', None)
-    build.classify('//UWNBoundless_GlobalGameJam2020//**~', None)
+    build.classify('/UWNBoundless_GlobalGameJam2020/**~', None)
+    build.classify('/UWNBoundless_GlobalGameJam2020/.**', None)
+    build.classify('/UWNBoundless_GlobalGameJam2020/#**', None)
 
     ## 若要打包文件，需将其列为“archive”。
 

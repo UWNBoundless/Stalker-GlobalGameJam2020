@@ -1,1 +1,0 @@
-{"layout": null, "package": "stalker.uwnboundless", "include_pil": false, "numeric_version": "2", "expansion": false, "name": "UWNBoundless", "update_always": true, "source": false, "icon_name": "UWNBoundless", "version": "0.0.1.", "update_icons": true, "permissions": ["VIBRATE"], "include_sqlite": false, "store": "none", "orientation": "sensorLandscape"}
