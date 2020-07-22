@@ -119,45 +119,45 @@ label achieve:
         $ achievement.grant('ShadowPerson_0_4')
 
     # 无所作为
-    $ achievement.register('xxxxxx', steam='xxxxxx')
-    if not achievement.has('xxxxxx') and persistent.nothing_achievements >= 1:
-        $ achievement.grant('xxxxxx')
+    $ achievement.register('nothing_0_0', steam='ACHIEVEMENT_nothing_0_0')
+    if not achievement.has('nothing_0_0') and persistent.nothing_achievements >= 1:
+        $ achievement.grant('nothing_0_0')
 
-    $ achievement.register('xxxxxx', steam='xxxxxx')
-    if not achievement.has('xxxxxx') and persistent.nothing_achievements >= 5:
-        $ achievement.grant('xxxxxx')
+    $ achievement.register('nothing_0_1', steam='ACHIEVEMENT_nothing_0_1')
+    if not achievement.has('nothing_0_1') and persistent.nothing_achievements >= 5:
+        $ achievement.grant('nothing_0_1')
 
-    $ achievement.register('xxxxxx', steam='xxxxxx')
-    if not achievement.has('xxxxxx') and persistent.nothing_achievements >= 10:
-        $ achievement.grant('xxxxxx')
+    $ achievement.register('nothing_0_2', steam='ACHIEVEMENT_nothing_0_2')
+    if not achievement.has('nothing_0_2') and persistent.nothing_achievements >= 10:
+        $ achievement.grant('nothing_0_2')
 
-    $ achievement.register('xxxxxx', steam='xxxxxx')
-    if not achievement.has('xxxxxx') and persistent.nothing_achievements >= 20:
-        $ achievement.grant('xxxxxx')
+    $ achievement.register('nothing_0_3', steam='ACHIEVEMENT_nothing_0_3')
+    if not achievement.has('nothing_0_3') and persistent.nothing_achievements >= 20:
+        $ achievement.grant('nothing_0_3')
 
-    $ achievement.register('xxxxxx', steam='xxxxxx')
-    if not achievement.has('xxxxxx') and persistent.nothing_achievements >= 30:
-        $ achievement.grant('xxxxxx')
+    $ achievement.register('nothing_0_4', steam='ACHIEVEMENT_nothing_0_4')
+    if not achievement.has('nothing_0_4') and persistent.nothing_achievements >= 30:
+        $ achievement.grant('nothing_0_4')
 
     # 捡垃圾达人
-    $ achievement.register('xxxxxx', steam='xxxxxx')
-    if not achievement.has('xxxxxx') and persistent.trash_achievements >= 1:
-        $ achievement.grant('xxxxxx')
+    $ achievement.register('trash_0_0', steam='ACHIEVEMENT_trash_0_0')
+    if not achievement.has('trash_0_0') and persistent.trash_achievements >= 1:
+        $ achievement.grant('trash_0_0')
 
-    $ achievement.register('xxxxxx', steam='xxxxxx')
-    if not achievement.has('xxxxxx') and persistent.trash_achievements >= 5:
-        $ achievement.grant('xxxxxx')
+    $ achievement.register('trash_0_1', steam='ACHIEVEMENT_trash_0_1')
+    if not achievement.has('trash_0_1') and persistent.trash_achievements >= 5:
+        $ achievement.grant('trash_0_1')
 
-    $ achievement.register('xxxxxx', steam='xxxxxx')
-    if not achievement.has('xxxxxx') and persistent.trash_achievements >= 10:
-        $ achievement.grant('xxxxxx')
+    $ achievement.register('trash_0_2', steam='ACHIEVEMENT_trash_0_2')
+    if not achievement.has('trash_0_2') and persistent.trash_achievements >= 10:
+        $ achievement.grant('trash_0_2')
 
-    $ achievement.register('xxxxxx', steam='xxxxxx')
-    if not achievement.has('xxxxxx') and persistent.trash_achievements >= 20:
-        $ achievement.grant('xxxxxx')
+    $ achievement.register('trash_0_3', steam='ACHIEVEMENT_trash_0_3')
+    if not achievement.has('trash_0_3') and persistent.trash_achievements >= 20:
+        $ achievement.grant('trash_0_3')
 
-    $ achievement.register('xxxxxx', steam='xxxxxx')
-    if not achievement.has('xxxxxx') and persistent.trash_achievements >= 30:
-        $ achievement.grant('xxxxxx')
+    $ achievement.register('trash_0_4', steam='ACHIEVEMENT_trash_0_4')
+    if not achievement.has('trash_0_4') and persistent.trash_achievements >= 30:
+        $ achievement.grant('trash_0_4')
 
     return
