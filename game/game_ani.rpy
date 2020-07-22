@@ -66,7 +66,7 @@ screen chaMoveCon(cha):
                             'game_map_shop_1',
                             'game_map_home_1']):
         if renpy.random.randint(0, 100) >= persistent.val:
-            timer 0.01 action Play('sound', 'sound/hei.mp3'), SetVariable('persistent.val', persistent.val-2), SetVariable("persistent.pleasuretimes_achievements.", persistent.pleasuretimes_achievements+1)
+            timer 0.01 action Play('sound', 'sound/hei.mp3'), SetVariable('persistent.val', persistent.val-2), SetVariable("persistent.pleasuretimes_achievements", persistent.pleasuretimes_achievements+1)
             add 'lovebox' xpos 130+200 ypos 400 align(0.5, 1.0)
         add cha xpos 130 ypos 690 align(0.5, 1.0)
 

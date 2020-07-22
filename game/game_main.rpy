@@ -4,6 +4,12 @@
 
 init offset = -1
 
+default persistent.caught_achievements = 0
+default persistent.pleasuretimes_achievements = 0
+default persistent.street_achievements = 0
+default persistent.nothing_achievements = 0
+default persistent.trash_achievements = 0
+
 ################################################################################
 ## Main
 ################################################################################

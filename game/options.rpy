@@ -23,7 +23,7 @@ define gui.show_name = True
 
 ## 游戏版本号。
 
-define config.version = "v0.2.1.2"
+define config.version = "v0.2.1.3"
 
 define persistent.EarlAccess = True
 
