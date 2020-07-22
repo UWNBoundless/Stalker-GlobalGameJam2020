@@ -56,67 +56,67 @@ label achieve:
         $ achievement.grant('CaughtTime_0_4')
 
     # 色情狂魔
-    $ achievement.register('xxxxxx', steam='xxxxxx')
-    if not achievement.has('xxxxxx') and persistent.pleasuretimes_achievements >= 10:
-        $ achievement.grant('xxxxxx')
+    $ achievement.register('pleasure_0_0', steam='ACHIEVEMENT_pleasure_0_0')
+    if not achievement.has('pleasure_0_0') and persistent.pleasuretimes_achievements >= 10:
+        $ achievement.grant('pleasure_0_0')
 
-    $ achievement.register('xxxxxx', steam='xxxxxx')
-    if not achievement.has('xxxxxx') and persistent.pleasuretimes_achievements >= 50:
-        $ achievement.grant('xxxxxx')
+    $ achievement.register('pleasure_0_1', steam='ACHIEVEMENT_pleasure_0_1')
+    if not achievement.has('pleasure_0_1') and persistent.pleasuretimes_achievements >= 50:
+        $ achievement.grant('pleasure_0_1')
 
-    $ achievement.register('xxxxxx', steam='xxxxxx')
-    if not achievement.has('xxxxxx') and persistent.pleasuretimes_achievements >= 100:
-        $ achievement.grant('xxxxxx')
+    $ achievement.register('pleasure_0_2', steam='ACHIEVEMENT_pleasure_0_2')
+    if not achievement.has('pleasure_0_2') and persistent.pleasuretimes_achievements >= 100:
+        $ achievement.grant('pleasure_0_2')
 
-    $ achievement.register('xxxxxx', steam='xxxxxx')
-    if not achievement.has('xxxxxx') and persistent.pleasuretimes_achievements >= 500:
-        $ achievement.grant('xxxxxx')
+    $ achievement.register('pleasure_0_3', steam='ACHIEVEMENT_pleasure_0_3')
+    if not achievement.has('pleasure_0_3') and persistent.pleasuretimes_achievements >= 500:
+        $ achievement.grant('pleasure_0_3')
 
-    $ achievement.register('xxxxxx', steam='xxxxxx')
-    if not achievement.has('xxxxxx') and persistent.pleasuretimes_achievements >= 1000:
-        $ achievement.grant('xxxxxx')
+    $ achievement.register('pleasure_0_4', steam='ACHIEVEMENT_pleasure_0_4')
+    if not achievement.has('pleasure_0_4') and persistent.pleasuretimes_achievements >= 1000:
+        $ achievement.grant('pleasure_0_4')
 
     # 猫咪
-    $ achievement.register('xxxxxx', steam='xxxxxx')
-    if not achievement.has('xxxxxx') and persistent.cat_achievements >= 1:
-        $ achievement.grant('xxxxxx')
+    $ achievement.register('cat_0_0', steam='ACHIEVEMENT_cat_0_0')
+    if not achievement.has('cat_0_0') and persistent.cat_achievements >= 1:
+        $ achievement.grant('cat_0_0')
 
-    $ achievement.register('xxxxxx', steam='xxxxxx')
-    if not achievement.has('xxxxxx') and persistent.cat_achievements >= 5:
-        $ achievement.grant('xxxxxx')
+    $ achievement.register('cat_0_1', steam='ACHIEVEMENT_cat_0_1')
+    if not achievement.has('cat_0_1') and persistent.cat_achievements >= 5:
+        $ achievement.grant('cat_0_1')
 
-    $ achievement.register('xxxxxx', steam='xxxxxx')
-    if not achievement.has('xxxxxx') and persistent.cat_achievements >= 10:
-        $ achievement.grant('xxxxxx')
+    $ achievement.register('cat_0_2', steam='ACHIEVEMENT_cat_0_2')
+    if not achievement.has('cat_0_2') and persistent.cat_achievements >= 10:
+        $ achievement.grant('cat_0_2')
 
-    $ achievement.register('xxxxxx', steam='xxxxxx')
-    if not achievement.has('xxxxxx') and persistent.cat_achievements >= 20:
-        $ achievement.grant('xxxxxx')
+    $ achievement.register('cat_0_3', steam='ACHIEVEMENT_cat_0_3')
+    if not achievement.has('cat_0_3') and persistent.cat_achievements >= 20:
+        $ achievement.grant('cat_0_3')
 
-    $ achievement.register('xxxxxx', steam='xxxxxx')
-    if not achievement.has('xxxxxx') and persistent.cat_achievements >= 30:
-        $ achievement.grant('xxxxxx')
+    $ achievement.register('cat_0_4', steam='ACHIEVEMENT_cat_0_4')
+    if not achievement.has('cat_0_4') and persistent.cat_achievements >= 30:
+        $ achievement.grant('cat_0_4')
     
     # 黑衣人友人
-    $ achievement.register('xxxxxx', steam='xxxxxx')
-    if not achievement.has('xxxxxx') and persistent.street_achievements >= 1:
-        $ achievement.grant('xxxxxx')
+    $ achievement.register('ShadowPerson_0_0', steam='ACHIEVEMENT_ShadowPerson_0_0')
+    if not achievement.has('ShadowPerson_0_0') and persistent.street_achievements >= 1:
+        $ achievement.grant('ShadowPerson_0_0')
 
-    $ achievement.register('xxxxxx', steam='xxxxxx')
-    if not achievement.has('xxxxxx') and persistent.street_achievements >= 5:
-        $ achievement.grant('xxxxxx')
+    $ achievement.register('ShadowPerson_0_1', steam='ACHIEVEMENT_ShadowPerson_0_1')
+    if not achievement.has('ShadowPerson_0_1') and persistent.street_achievements >= 5:
+        $ achievement.grant('ShadowPerson_0_1')
 
-    $ achievement.register('xxxxxx', steam='xxxxxx')
-    if not achievement.has('xxxxxx') and persistent.street_achievements >= 10:
-        $ achievement.grant('xxxxxx')
+    $ achievement.register('ShadowPerson_0_2', steam='ACHIEVEMENT_ShadowPerson_0_2')
+    if not achievement.has('ShadowPerson_0_2') and persistent.street_achievements >= 10:
+        $ achievement.grant('ShadowPerson_0_2')
 
-    $ achievement.register('xxxxxx', steam='xxxxxx')
-    if not achievement.has('xxxxxx') and persistent.street_achievements >= 20:
-        $ achievement.grant('xxxxxx')
+    $ achievement.register('ShadowPerson_0_3', steam='ACHIEVEMENT_ShadowPerson_0_3')
+    if not achievement.has('ShadowPerson_0_3') and persistent.street_achievements >= 20:
+        $ achievement.grant('ShadowPerson_0_3')
 
-    $ achievement.register('xxxxxx', steam='xxxxxx')
-    if not achievement.has('xxxxxx') and persistent.street_achievements >= 30:
-        $ achievement.grant('xxxxxx')
+    $ achievement.register('ShadowPerson_0_4', steam='ACHIEVEMENT_ShadowPerson_0_4')
+    if not achievement.has('ShadowPerson_0_4') and persistent.street_achievements >= 30:
+        $ achievement.grant('ShadowPerson_0_4')
 
     # 无所作为
     $ achievement.register('xxxxxx', steam='xxxxxx')
