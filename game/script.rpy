@@ -132,7 +132,7 @@ label ne2:
 
 label ne3:
     $ persistent.trash_achievements += persistent.trash_counts
-    scene image '/cg/cg_3.png' with Dissolve(1.0)
+    scene image '/cg/e3.jpg' with Dissolve(1.0)
     pause
 
     jump achieve

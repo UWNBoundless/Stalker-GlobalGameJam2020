@@ -9,6 +9,8 @@ default persistent.pleasuretimes_achievements = 0
 default persistent.street_achievements = 0
 default persistent.nothing_achievements = 0
 default persistent.trash_achievements = 0
+default persistent.cat_achievements = 0
+default persistent.dead_times = 0
 
 ################################################################################
 ## Main
@@ -33,6 +35,10 @@ screen game_buttonControll(xoffset_max):
         # text _(str(persistent.trash_counts)) xpos 50 ypos 45 color '#000'
         # text _(str(tmp_xpos)) xpos 50 ypos 70 color '#000'
         # text _(str(persistent.street_achieve)) xpos 100 ypos 0 color '#000'
+        # text _(str(persistent.street_achieve)) xpos 100 ypos 0 color '#000'
+        # text _(str(persistent.cn_cat_inter)) xpos 100 ypos 70 color '#000'
+        # text _(str(persistent.f_ht_times)) xpos 100 ypos 140 color '#000'
+        # text _(str(persistent.trash_counts)) xpos 100 ypos 210 color '#000'
 
         imagebutton:
             keysym 'z'

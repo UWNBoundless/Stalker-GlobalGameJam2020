@@ -81,25 +81,19 @@ style frame:
 ################################################################################
 
 screen language_change():
-    tag menu
 
-    imagebutton:
-        xalign 1.0 yalign 0.0 yoffset 5
-        idle "option_idle"
-        action ShowMenu("preferences")
-
-    textbutton _(persistent.global_language):
-        xalign 1.0 yalign 0.05
+    textbutton _("Language|语言"):
+        xalign 0.0 yalign 0.0
         action Show('language_list')
 
 screen language_list():
 
-    textbutton _('EN'):
-        xalign 1.0 yalign 0.05
+    textbutton _('English'):
+        xalign 0.0 yalign 0.04
         action SetVariable('persistent.global_language', 'EN'), Hide('language_list')
 
-    textbutton _('CN'):
-        xalign 1.0 yalign 0.05 yoffset 25
+    textbutton _('简体中文'):
+        xalign 0.0 yalign 0.04 yoffset 25
         action SetVariable('persistent.global_language', 'CN'), Hide('language_list')
 
 
@@ -308,6 +302,26 @@ style quick_button_text:
 
 screen navigation():
 
+    if main_menu:
+
+        imagebutton:
+            xalign 1.0 yalign 0.0
+            idle "option_idle"
+            action ShowMenu("preferences")
+
+        
+        if persistent.global_language == "EN":
+            textbutton _("Help"):
+                text_style "help_textbtn"
+                xalign 0.0 yalign 0.0
+                action Show("help")
+        elif persistent.global_language == "CN":
+            textbutton _("帮助"):
+                text_style "help_textbtn"
+                xalign 0.0 yalign 0.0
+                action Show("help")
+
+
     vbox:
         style_prefix "navigation"
 
@@ -394,7 +408,6 @@ screen main_menu():
 
     ## “use”语句将其他的屏幕包含进此屏幕。标题屏幕的实际内容在导航屏幕中。
     use navigation
-    use language_change
 
     if gui.show_name:
 
@@ -754,6 +767,8 @@ screen preferences():
     if main_menu:
         add "gui/nvl.png"
 
+        use language_change
+
         hbox:
             xalign 0.5 xanchor 0.5
             xsize 1100
@@ -814,7 +829,7 @@ screen preferences():
 
 style preferences_textbtn:
     color "#FF0000"
-    hover_color "#0000FF"
+    hover_color "#FFFFFF"
     selected_color "#00FF00"
 
 style pref_label is gui_label
@@ -1025,31 +1040,90 @@ style history_label_text:
 
 screen help():
 
-    tag menu
+    modal True
 
-    default device = "keyboard"
+    add "gui/nvl.png"
 
-    use game_menu(_("帮助"), scroll="viewport"):
+    vbox:
+        xalign 0.5 xanchor 0.5
+        xsize 1100
+        yalign 0.25
+        spacing 30
 
-        style_prefix "help"
+        hbox:
+            xalign 0.5 xanchor 0.5
+            spacing 200
 
-        vbox:
-            spacing 15
+            add "gui/help/1.png" zoom 0.4
+            add "gui/help/2.png" zoom 0.4
+        
+        hbox:
+            xalign 0.5 xanchor 0.5
+            spacing 200
 
-            hbox:
+            if persistent.global_language == "EN":
+                text "          Interact with the map\nevents to have a different ending." xoffset -20
+                text "Don't be too far."xoffset -50
+            elif persistent.global_language == "CN":
+                text "和场景交互来改变结局。"
+                text "不能离太远。" xoffset -20
+        
+        hbox:
+            xalign 0.5 xanchor 0.5
+            spacing 200
+            add "gui/help/3.png" zoom 0.4
+            add "gui/help/4.png" zoom 0.4
+        
+        hbox:
+            xalign 0.5 xanchor 0.5
+            spacing 200
+            if persistent.global_language == "EN":
+                text "Don't be too close."
+                text "Or much closer......" xoffset 20
+            elif persistent.global_language == "CN":
+                text "也不能离太近。"
+                text "或离得更近......" xoffset 30
 
-                textbutton _("键盘") action SetScreenVariable("device", "keyboard")
-                textbutton _("鼠标") action SetScreenVariable("device", "mouse")
 
-                if GamepadExists():
-                    textbutton _("手柄") action SetScreenVariable("device", "gamepad")
+    if persistent.global_language == "EN":
+        textbutton _("Return"):
+            xalign 0.9 yalign 0.9
+            text_style "preferences_textbtn"
+            action Return(), Hide("help")
+    elif persistent.global_language == "CN":
+        textbutton _("返回"):
+            xalign 0.9 yalign 0.9
+            text_style "preferences_textbtn"
+            action Return(), Hide("help")
 
-            if device == "keyboard":
-                use keyboard_help
-            elif device == "mouse":
-                use mouse_help
-            elif device == "gamepad":
-                use gamepad_help
+style help_textbtn:
+    color "#FFFFFF"
+    hover_color "#FF0000"
+    selected_color "#00FF00"
+
+    # default device = "keyboard"
+
+    # use game_menu(_("帮助"), scroll="viewport"):
+
+    #     style_prefix "help"
+
+    #     vbox:
+    #         spacing 15
+
+    #         hbox:
+
+    #             textbutton _("键盘") action SetScreenVariable("device", "keyboard")
+    #             textbutton _("鼠标") action SetScreenVariable("device", "mouse")
+
+    #             if GamepadExists():
+    #                 textbutton _("手柄") action SetScreenVariable("device", "gamepad")
+
+    #         if device == "keyboard":
+    #             use keyboard_help
+    #         elif device == "mouse":
+    #             use mouse_help
+    #         elif device == "gamepad":
+    #             use gamepad_help
 
 
 screen keyboard_help():
